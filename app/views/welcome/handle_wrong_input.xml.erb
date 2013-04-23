@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
 <% if @success == "true" %>
-<Redirect>/welcome/voice.xml</Redirect>
+<Redirect method='GET'>/welcome/voice.xml</Redirect>
 <% else %>
 <Gather action="/welcome/handle_wrong_input.xml" numDigits="1" method="GET">
 <Say>Sorry, This is not valid option.</Say>
 <Say>Please Press 1 for repeat options again.</Say>
 </Gather>
 <Say>Sorry, I didn't get your response.</Say>
-<Redirect>/welcome/handle_wrong_input.xml?Digits=1</Redirect>
+<Redirect method='GET'>/welcome/handle_wrong_input.xml?Digits=1</Redirect>
 <% end %>
 </Response>

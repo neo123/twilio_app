@@ -8,8 +8,8 @@
 <% else %>
 <Say>User authentication failed.</Say>
 <Say>Please try again</Say>
-<Redirect>/welcome/voice_reply.xml?Digits=1</Redirect>
+<Redirect method='GET'>/welcome/voice_reply.xml?Digits=1</Redirect>
 <% end %>
 <Say>Sorry, I didn't get your response.</Say>
-<Redirect>/welcome/handle_wrong_input.xml?Digits=1</Redirect>
+<Redirect method='GET'>/welcome/handle_wrong_input.xml?Digits=1</Redirect>
 </Response>
