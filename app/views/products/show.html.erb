@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Username:</b>
+  <%= @product.username %>
+</p>
+
+<p>
+  <b>Secrete token:</b>
+  <%= @product.secrete_token %>
+</p>
+
+<p>
+  <b>In stock:</b>
+  <%= @product.in_stock %>
+</p>
+
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

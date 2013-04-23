@@ -1,4 +1,7 @@
 TwilioApp::Application.routes.draw do
+  resources :products
+
+
   get "welcome/index"
 
   get "home/index"
@@ -37,6 +40,9 @@ TwilioApp::Application.routes.draw do
     collection do
       get 'voice'
       get 'voice_reply'
+      get 'handle_wrong_input'
+      get 'user_authentication'
+      get 'provide_info'
     end
   end
 

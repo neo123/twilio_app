@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
 <% if @success == "true" %>
-<Gather action="/welcome/user_authentication.xml" numDigits="1">
-<Say>Please enter your four digits secrete token.</Say>
-</Gather>
+<Redirect>/welcome/voice.xml</Redirect>
 <% else %>
 <Gather action="/welcome/handle_wrong_input.xml" numDigits="1">
 <Say>Sorry, This is not valid option.</Say>
 <Say>Please Press 1 for repeat options again.</Say>
 </Gather>
-<% end %>
 <Say>Sorry, I didn't get your response.</Say>
-<Redirect>/welcome/handle_wrong_input.xml?Digits=1</Redirect>
+<Redirect>handle-incoming-call.xml</Redirect>
+<% end %>
 </Response>
