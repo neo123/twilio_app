@@ -42,7 +42,16 @@ class WelcomeController < ApplicationController
   end
 
   def provide_info
-
+    @product_user = Product.find_by_secrete_token(params["token"])
+    case params["Digits"]
+    when "1"
+      @check = "account_status"
+    else
+      @success = "account_balance"
+    end 
+    respond_to do |format|
+      format.xml
+    end
   end
 
 end
