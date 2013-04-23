@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
 <% if !@product_user.nil? %>
-<Gather action="/welcome/provide_info.xml?token=#{@product_user.secrete_token}" numDigits="1" method="GET">
+<Gather action="/welcome/provide_info.xml?token=<%= @product_user.secrete_token%>" numDigits="1" method="GET">
 <Say>Press 1 for account status.</Say>
 <Say>Press 2 for account balance.</Say>
 </Gather>
