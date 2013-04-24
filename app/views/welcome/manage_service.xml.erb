@@ -5,7 +5,7 @@
 <Say>Please enter quantity.</Say>
 </Gather>
 <% else %>
-<Gather action="/welcome/voice_reply.xml?client_id=<%= @client.client_id%>" numDigits="1" method="GET">
+<Gather action="/welcome/voice_reply.xml?client_id=<%= @user.client_id%>" numDigits="1" method="GET">
 <Say>Please enter valid option.</Say>
 <Say>Press 1 for try again.</Say>
 <% end %>

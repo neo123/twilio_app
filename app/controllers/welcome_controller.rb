@@ -29,6 +29,7 @@ class WelcomeController < ApplicationController
     when "2"
       service_name = "KFC"
     end
+    @user = Product.find_by_client_id(params["client_id"])
     @client = Product.find_by_client_id_and_service_name(params["client_id"], service_name)
     respond_to do |format|
       format.xml
