@@ -10,13 +10,34 @@ class WelcomeController < ApplicationController
   end
 
   def voice_reply
-    case params["Digits"]
-    when "1", "2", "3"
-      @success = "true"
+    if params["client_id"]
+      client_id = params["client_id"]
     else
-      @success = "false"
+      client_id = params["Digits"]
     end
+    @client = Product.find_by_client_id(client_id)
   	
+    respond_to do |format|
+      format.xml
+    end
+  end
+
+  def manage_service
+    case params["Digits"]
+    when "1"
+      service_name = "Meal on wheels"
+    when "2"
+      service_name = "KFC"
+    end
+    @client = Product.find_by_client_id_and_service_name(params["client_id"], service_name)
+    respond_to do |format|
+      format.xml
+    end
+  end
+
+  def place_order
+    @client = Product.find_by_client_id_and_service_name(params["client_id"], params["service_name"])
+    @client.update_attributes(:quantity => params["Digits"])
     respond_to do |format|
       format.xml
     end

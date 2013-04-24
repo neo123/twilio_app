@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-<Gather action="/welcome/voice_reply.xml" numDigits="1" method="GET">
-<Say>Welcome to v2solutions.</Say>
-<Say>For account status, press 1.</Say>
-<Say>To check account balance, press 2.</Say>
-<Say>To know stock in products, press 3.</Say>
+<Gather action="/welcome/voice_reply.xml" numDigits=">=1" method="GET">
+<Say>Welcome to Harmony Information Systems.</Say>
+<Say>Kindly enter client id.</Say>
 </Gather>
 <!-- If customer doesn't input anything, prompt and try again. -->
 <Say>Sorry, I didn't get your response.</Say>

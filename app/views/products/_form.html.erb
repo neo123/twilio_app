@@ -12,24 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
+    <%= f.label :client_id %><br />
+    <%= f.number_field :client_id %>
   </div>
   <div class="field">
-    <%= f.label :secrete_token %><br />
-    <%= f.text_field :secrete_token %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :in_stock %><br />
-    <%= f.number_field :in_stock %>
+    <%= f.label :service_name %><br />
+    <%= f.text_field :service_name %>
   </div>
   <div class="field">
-    <%= f.label :package_status %><br />
-    <%= f.text_field :package_status %>
-  </div>
-  <div class="field">
-    <%= f.label :account_balance %><br />
-    <%= f.number_field :account_balance %>
+    <%= f.label :quantity %><br />
+    <%= f.number_field :quantity %>
   </div>
   <div class="actions">
     <%= f.submit %>

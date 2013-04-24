@@ -43,6 +43,8 @@ TwilioApp::Application.routes.draw do
       get 'handle_wrong_input'
       get 'user_authentication'
       get 'provide_info'
+      get 'manage_service'
+      get 'place_order'
     end
   end
 

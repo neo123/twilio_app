@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-<% if @success == "true" %>
-<Gather action="/welcome/user_authentication.xml" numDigits="4" method="GET">
-<Say>Please enter your four digits secrete token.</Say>
+<% if !@client.nil? %>
+<Gather action="/welcome/manage_service.xml?client_id=<%= @client.client_id%>" numDigits="1" method="GET">
+<Say>Welcome Mr. <%= @client.name %>.</Say>
+<Say>Please select services.</Say>
+<Say>Press 1 for Meal on wheels.</Say>
+<Say>Press 2 for KFC.</Say>
 </Gather>
 <% else %>
 <Gather action="/welcome/handle_wrong_input.xml" numDigits="1" method="GET">
-<Say>Sorry, This is not valid option.</Say>
-<Say>Please Press 1 for repeat options again.</Say>
+<Say>Sorry, This is not valid client id.</Say>
+<Say>Please Press 1 for try again.</Say>
+<Say>Plaese Press 2 for end call.</Say>
 </Gather>
 <% end %>
 <Say>Sorry, I didn't get your response.</Say>
