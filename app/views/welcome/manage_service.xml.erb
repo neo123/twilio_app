@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
 <% if !@client.nil? %>
-<Gather action="/welcome/place_order.xml?client_id=<%= @client.client_id%>;service_name=<%= @client.service_name%>" numDigits=">=1" method="GET">
+<Gather action="/welcome/place_order.xml?client_id=<%= @client.client_id%>&service_name=<%= @client.service_name%>;" numDigits=">=1" method="GET">
 <Say>Please enter quantity.</Say>
 </Gather>
 <% else %>
