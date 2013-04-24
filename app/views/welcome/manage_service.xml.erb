@@ -8,6 +8,7 @@
 <Gather action="/welcome/voice_reply.xml?client_id=<%= @user.client_id%>" numDigits="1" method="GET">
 <Say>Please enter valid option.</Say>
 <Say>Press 1 for try again.</Say>
+</Gather>
 <% end %>
 <!-- If customer doesn't input anything, prompt and try again. -->
 <Say>Sorry, I didn't get your response.</Say>
