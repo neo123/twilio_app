@@ -4,8 +4,9 @@
 <Gather action="/welcome/manage_service.xml?client_id=<%= @client.client_id%>" numDigits="1" method="GET">
 <Say>Welcome Mr. <%= @client.name %>.</Say>
 <Say>Please select services.</Say>
-<Say>Press 1 for Meal on wheels.</Say>
-<Say>Press 2 for KFC.</Say>
+<% @customer_services.each do |customer_service|%>
+<Say>Press <%= customer_service.order %> for <%= customer_service.service.name %>.</Say>
+<% end %>
 </Gather>
 <% else %>
 <Gather action="/welcome/handle_wrong_input.xml" numDigits="1" method="GET">

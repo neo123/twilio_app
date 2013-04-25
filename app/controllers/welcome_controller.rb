@@ -15,30 +15,27 @@ class WelcomeController < ApplicationController
     else
       client_id = params["Digits"]
     end
-    @client = Product.find_by_client_id(client_id)
-  	
+    @customer = Customer.find_by_client_id(client_id)
+  	@customer_services = @client.customer_services.order("sequence asc")
     respond_to do |format|
       format.xml
     end
   end
 
   def manage_service
-    case params["Digits"]
-    when "1"
-      service_name = "Meal on wheels"
-    when "2"
-      service_name = "KFC"
-    end
-    @user = Product.find_by_client_id(params["client_id"])
-    @client = Product.find_by_client_id_and_service_name(params["client_id"], service_name)
+    @customer = Customer.find_by_client_id(params["client_id"])
+    ## TODO
+    @customer_service = @customer.customer_services.find_by_service_id(params["Digits"])
     respond_to do |format|
       format.xml
     end
   end
 
   def place_order
-    @client = Product.find_by_client_id_and_service_name(params["client_id"], params["service_name"])
-    @client.update_attributes(:quantity => params["Digits"])
+    ## TODO
+    @customer = Customer.find_by_id(params["customer_id"])
+    @customer_service = @customer.customer_services.find_by_service_id(params["service_id"])
+    @customer_service.update_attributes(:quantity => params["Digits"])
     respond_to do |format|
       format.xml
     end
@@ -51,26 +48,6 @@ class WelcomeController < ApplicationController
     else
       @success = "false"
     end
-    respond_to do |format|
-      format.xml
-    end
-  end
-
-  def user_authentication
-    @product_user = Product.find_by_secrete_token(params["Digits"])
-    respond_to do |format|
-      format.xml
-    end
-  end
-
-  def provide_info
-    @product_user = Product.find_by_secrete_token(params["token"])
-    case params["Digits"]
-    when "1"
-      @check = "account_status"
-    else
-      @success = "account_balance"
-    end 
     respond_to do |format|
       format.xml
     end

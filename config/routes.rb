@@ -1,6 +1,25 @@
 TwilioApp::Application.routes.draw do
-  resources :products
+  resources :customer_services
 
+
+  get "customer_services/index"
+
+  get "customer_services/shoe"
+
+  get "customer_services/new"
+
+  get "customer_services/edit"
+
+  get "customer_services/create"
+
+  get "customer_services/update"
+
+  get "customer_services/destroy"
+
+  resources :customer_services
+  resources :customers, :has_many => [:customer_services]
+  resources :services
+  resources :products
 
   get "welcome/index"
 
@@ -41,8 +60,6 @@ TwilioApp::Application.routes.draw do
       get 'voice'
       get 'voice_reply'
       get 'handle_wrong_input'
-      get 'user_authentication'
-      get 'provide_info'
       get 'manage_service'
       get 'place_order'
     end
