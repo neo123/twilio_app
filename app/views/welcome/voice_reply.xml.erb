@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-<% if !@client.nil? %>
-<Gather action="/welcome/manage_service.xml?client_id=<%= @client.client_id%>" numDigits="1" method="GET">
-<Say>Welcome Mr. <%= @client.name %>.</Say>
+<% if !@customer.nil? %>
+<Gather action="/welcome/manage_service.xml?client_id=<%= @customer.client_id%>" numDigits="1" method="GET">
+<Say>Welcome Mr. <%= @customer.name %>.</Say>
 <Say>Please select services.</Say>
 <% @customer_services.each do |customer_service|%>
-<Say>Press <%= customer_service.order %> for <%= customer_service.service.name %>.</Say>
+<Say>Press <%= customer_service.position %> for <%= customer_service.service.name %>.</Say>
 <% end %>
 </Gather>
 <% else %>

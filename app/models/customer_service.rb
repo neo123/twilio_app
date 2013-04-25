@@ -1,5 +1,5 @@
 class CustomerService < ActiveRecord::Base
-  attr_accessible :sequence, :customer_id, :quantity, :service_id
+  attr_accessible :position, :customer_id, :quantity, :service_id
   belongs_to :customer
   belongs_to :service
 
@@ -9,7 +9,7 @@ class CustomerService < ActiveRecord::Base
 
   private
   def set_per_order
-  	val = CustomerService.where(:customer_id => self.customer_id).maximum(:sequence)
+  	val = CustomerService.where(:customer_id => self.customer_id).maximum(:position)
   	self.order = val.nil? ? 1 : (val + 1)
   end
 end
