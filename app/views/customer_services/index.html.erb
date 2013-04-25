@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Order</th>
+    <th>position</th>
     <th>Customer</th>
     <th>Quantity</th>
     <th>Service</th>
@@ -13,7 +13,7 @@
 
 <% @customer_services.each do |customer_service| %>
   <tr>
-    <td><%= customer_service.order %></td>
+    <td><%= customer_service.position %></td>
     <td><%= customer_service.customer_id %></td>
     <td><%= customer_service.quantity %></td>
     <td><%= customer_service.service_id %></td>
