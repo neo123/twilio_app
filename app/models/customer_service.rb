@@ -10,6 +10,6 @@ class CustomerService < ActiveRecord::Base
   private
   def set_per_order
   	val = CustomerService.where(:customer_id => self.customer_id).maximum(:position)
-  	self.order = val.nil? ? 1 : (val + 1)
+  	self.position = val.nil? ? 1 : (val + 1)
   end
 end
